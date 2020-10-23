@@ -29,10 +29,7 @@ const initialState ={
             messages: ['Yo!', 'Sup?']
         }
     ],
-    currentFriend: {
-        name: 'Katy',
-        messages: ['Hi There', 'Blah', 'ya hoo']
-    }
+    currentFriend: 'Katy'
 }
 
 export default function (state = initialState, action) {
