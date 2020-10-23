@@ -9,7 +9,7 @@ class FriendList extends Component {
     render() {
         const {friendsData} = this.props.chat
         let list = friendsData.map(el => 
-            <Row key={friendsData.indexOf(el)} onClick={()=> this.props.setCurrentFriend(el)} 
+            <Row key={friendsData.indexOf(el)} onClick={()=> {this.props.setCurrentFriend(el.name); this.props.changeFriend()}} 
             style={{cursor: 'pointer', border: '2px solid white'}}
             >
                 {el.name}

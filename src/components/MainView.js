@@ -24,6 +24,11 @@ class MainView extends Component {
 
     onSubmit(){
         this.props.addMessage(this.state.currentMessage)
+        this.setState({currentMessage: ''})
+    }
+
+    changeFriend(){
+        this.setState({ currentMessage: '' })
     }
 
     render(){
@@ -33,11 +38,11 @@ class MainView extends Component {
                     <Row gutter={3} style={{ height: '100vh' }} >
                         <Col span={8}>
                             <div>Friend's List</div>
-                            <FriendList />
+                            <FriendList changeFriend= {() => this.changeFriend()}/>
                         </Col>
                         <Col span={16}>
                             <Row style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '85%'}}>
-                                <div>{this.props.chat.currentFriend.name}</div>
+                                <div>{this.props.chat.currentFriend}</div>
                                 <Chat />
                             </Row>
                             <Row style={{ bottom: '0', position:'absolute', display: 'flex', justifyContent: 'flex-end', width:'100%'}}>

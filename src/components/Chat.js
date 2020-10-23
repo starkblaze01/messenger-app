@@ -5,9 +5,11 @@ import {Row} from 'antd';
 class Chat extends Component {
     
     render(){
-    const currentFriend = this.props.chat.currentFriend
-    let message = currentFriend && currentFriend.messages ? currentFriend.messages.map(el =>
-        <Row key={currentFriend.messages.indexOf(el)} style={{ display: 'flex', justifyContent: 'flex-end', margin: '4px 0' }}>
+    const allFriends = this.props.chat.friendsData
+    let mes = allFriends.filter(el => el.name === this.props.chat.currentFriend)
+    // console.log(mes)
+    let message = mes[0] && mes[0].messages ? mes[0].messages.map(el =>
+        <Row key={mes[0].messages.indexOf(el)} style={{ display: 'flex', justifyContent: 'flex-end', margin: '4px 0' }}>
             <span style={{ border:'2px solid blue', borderRadius: '20px', padding: '0 10px' }}>
                 {el}
             </span>
